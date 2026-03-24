@@ -9,9 +9,9 @@ namespace Audit_Project.Service.Interfaces;
 /// </summary>
 public interface IProductService
 {
-    Task<Product> GetProductByIdAsync(Guid id);
+    Task<Product?> GetProductByIdAsync(Guid id);
     Task<IEnumerable<Product>> GetAllProductsAsync();
-    Task AddProductAsync(Product product);
-    Task UpdateProductAsync(Product product);
-    Task DeleteProductAsync(Guid id);
+    Task AddProductAsync(Product product, string loggedBy);
+    Task UpdateProductAsync(Product product, string loggedBy);
+    Task DeleteProductAsync(Guid id, string loggedBy);
 }

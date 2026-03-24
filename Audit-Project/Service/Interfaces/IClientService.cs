@@ -9,9 +9,9 @@ namespace Audit_Project.Service.Interfaces;
 /// </summary>
 public interface IClientService
 {
-    Task<Client> GetClientByIdAsync(Guid id);
+    Task<Client?> GetClientByIdAsync(Guid id);
     Task<IEnumerable<Client>> GetAllClientsAsync();
-    Task AddClientAsync(Client client);
-    Task UpdateClientAsync(Client client);
-    Task DeleteClientAsync(Guid id);
+    Task AddClientAsync(Client client, string loggedBy);
+    Task UpdateClientAsync(Client client, string loggedBy);
+    Task DeleteClientAsync(Guid id, string loggedBy);
 }

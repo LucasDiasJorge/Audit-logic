@@ -9,9 +9,9 @@ namespace Audit_Project.Service.Interfaces;
 /// </summary>
 public interface IOrderService
 {
-    Task<Order> GetOrderByIdAsync(Guid id);
+    Task<Order?> GetOrderByIdAsync(Guid id);
     Task<IEnumerable<Order>> GetAllOrdersAsync();
-    Task AddOrderAsync(Order order);
-    Task UpdateOrderAsync(Order order);
-    Task DeleteOrderAsync(Guid id);
+    Task AddOrderAsync(Order order, string loggedBy);
+    Task UpdateOrderAsync(Order order, string loggedBy);
+    Task DeleteOrderAsync(Guid id, string loggedBy);
 }
