@@ -17,7 +17,7 @@ public class OrderService : IOrderService
     {
         _repository = repository;
     }
-    public Task<Order> GetOrderByIdAsync(Guid id)
+    public Task<Order?> GetOrderByIdAsync(Guid id)
     {
         return _repository.GetByIdAsync(id);
     }
@@ -27,18 +27,18 @@ public class OrderService : IOrderService
         return _repository.GetAllAsync();
     }
 
-    public Task AddOrderAsync(Order order)
+    public Task AddOrderAsync(Order order, string loggedBy)
     {
-        return _repository.AddAsync(order);
+        return _repository.AddAsync(order, loggedBy);
     }
 
-    public Task UpdateOrderAsync(Order order)
+    public Task UpdateOrderAsync(Order order, string loggedBy)
     {
-        return _repository.UpdateAsync(order);
+        return _repository.UpdateAsync(order, loggedBy);
     }
 
-    public Task DeleteOrderAsync(Guid id)
+    public Task DeleteOrderAsync(Guid id, string loggedBy)
     {
-        return _repository.DeleteAsync(id);
+        return _repository.DeleteAsync(id, loggedBy);
     }
 }

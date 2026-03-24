@@ -17,9 +17,9 @@ public class ProductService : IProductService
     {
         _repository = repository;
     }
-    public Task<Product> GetProductByIdAsync(Guid id) => _repository.GetByIdAsync(id);
+    public Task<Product?> GetProductByIdAsync(Guid id) => _repository.GetByIdAsync(id);
     public Task<IEnumerable<Product>> GetAllProductsAsync() => _repository.GetAllAsync();
-    public Task AddProductAsync(Product product) => _repository.AddAsync(product);
-    public Task UpdateProductAsync(Product product) => _repository.UpdateAsync(product);
-    public Task DeleteProductAsync(Guid id) => _repository.DeleteAsync(id);
+    public Task AddProductAsync(Product product, string loggedBy) => _repository.AddAsync(product, loggedBy);
+    public Task UpdateProductAsync(Product product, string loggedBy) => _repository.UpdateAsync(product, loggedBy);
+    public Task DeleteProductAsync(Guid id, string loggedBy) => _repository.DeleteAsync(id, loggedBy);
 }

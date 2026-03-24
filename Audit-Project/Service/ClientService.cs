@@ -19,13 +19,13 @@ public class ClientService : IClientService
         _repository = repository;
     }
 
-    public Task<Client> GetClientByIdAsync(Guid id) => _repository.GetByIdAsync(id);
+    public Task<Client?> GetClientByIdAsync(Guid id) => _repository.GetByIdAsync(id);
 
     public Task<IEnumerable<Client>> GetAllClientsAsync() => _repository.GetAllAsync();
 
-    public Task AddClientAsync(Client client) => _repository.AddAsync(client);
+    public Task AddClientAsync(Client client, string loggedBy) => _repository.AddAsync(client, loggedBy);
 
-    public Task UpdateClientAsync(Client client) => _repository.UpdateAsync(client);
+    public Task UpdateClientAsync(Client client, string loggedBy) => _repository.UpdateAsync(client, loggedBy);
 
-    public Task DeleteClientAsync(Guid id) => _repository.DeleteAsync(id);
+    public Task DeleteClientAsync(Guid id, string loggedBy) => _repository.DeleteAsync(id, loggedBy);
 }
