@@ -1,4 +1,5 @@
 using Audit_Project.Domain;
+using Audit_Project.Audit.Interfaces;
 using System.Data;
 
 namespace Audit_Project.Repository;
@@ -8,8 +9,8 @@ namespace Audit_Project.Repository;
 /// </summary>
 public class ClientRepository : GenericRepository<Client>, IClientRepository
 {
-    public ClientRepository(IDbConnection connection)
-        : base(connection, "Clients")
+    public ClientRepository(IDbConnection connection, IAuditService auditService)
+        : base(connection, auditService, "Clients")
     {
     }
 }
